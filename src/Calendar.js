@@ -755,7 +755,7 @@ class Calendar extends React.Component {
           onSelectEvent={this.handleSelectEvent}
           onDoubleClickEvent={this.handleDoubleClickEvent}
           onSelectSlot={this.handleSelectSlot}
-          onShowMore={this._showMore}
+          onShowMore={this.handleShowMore}
         />
       </div>
     )
@@ -801,6 +801,10 @@ class Calendar extends React.Component {
     if (view) this.handleViewChange(view)
 
     this.handleNavigate(navigate.DATE, date)
+  }
+
+  handleShowMore = (...args) => {
+    notify(this.props.onShowMore, args)
   }
 }
 
